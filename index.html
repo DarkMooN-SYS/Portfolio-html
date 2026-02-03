@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio Home - Bento Grid Variant</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#102210",
+                        "surface-dark": "#162616",
+                        "surface-light": "#1e331e",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for chips */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .bento-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px -10px rgba(13, 242, 13, 0.15);
+            border-color: rgba(13, 242, 13, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden min-h-screen flex flex-col">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md border-b border-[#283928] bg-background-dark/80">
+<div class="px-4 md:px-10 py-4 flex items-center justify-between max-w-7xl mx-auto">
+<div class="flex items-center gap-3 text-white">
+<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-background-dark">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<a class="text-white text-xl font-bold tracking-tight" href="/index.html">DevFolio</a>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/work.html">Work</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/about.html">About</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/services.html">Services</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/note.html">Notes</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center justify-center gap-2 rounded-full h-10 px-5 bg-surface-light border border-[#283928] text-white text-sm font-bold hover:bg-[#283928] transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Resume</span>
+</button>
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-button" class="md:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-[#1e331e] border border-[#283928] text-white hover:bg-primary hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Navigation Menu -->
+<nav id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-background-dark/95 backdrop-blur-md border-b border-[#283928] md:hidden z-50">
+<div class="px-4 py-4 flex flex-col gap-4 max-w-7xl mx-auto">
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/work.html">Work</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/about.html">About</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/services.html">Services</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/note.html">Notes</a>
+<button class="flex items-center justify-center gap-2 rounded-full h-10 px-5 bg-surface-light border border-[#283928] text-white text-sm font-bold hover:bg-[#283928] transition-colors w-full mt-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Resume</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Main Content: Bento Grid -->
+<main class="flex-grow w-full px-4 py-8 md:p-10 flex justify-center items-start">
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl">
+<!-- 1. Headline / Intro (Large) -->
+<div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative overflow-hidden rounded-3xl bg-surface-dark border border-[#283928] p-8 flex flex-col justify-between group">
+<div class="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-primary rotate-12">auto_awesome</span>
+</div>
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                        Available for freelance
+                    </div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4 text-white">
+                        Hi, I'm DarkMooN. <br/>
+<span class="text-gray-400">I'm a full stack developer.</span>
+</h1>
+</div>
+<div class="flex gap-4 mt-8">
+<button class="flex items-center justify-center rounded-full h-12 px-6 bg-primary text-background-dark text-base font-bold hover:bg-white transition-colors">
+                        View Projects
+                    </button>
+<button class="flex items-center justify-center rounded-full h-12 w-12 border border-[#283928] text-white hover:bg-[#283928] transition-colors">
+<span class="material-symbols-outlined">arrow_outward</span>
+</button>
+</div>
+</div>
+<!-- 2. Location Map (Small) -->
+<div class="bento-card col-span-1 row-span-1 rounded-3xl bg-surface-dark border border-[#283928] relative overflow-hidden group min-h-[240px]">
+<div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-80 transition-opacity" data-alt="Abstract dark map of Ulaanbaatar with neon green streets" data-location="Ulaanbaatar">
+    <img src="./assets/image.png" alt="ERROR" loading="lazy" srcset="">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<p class="text-white font-bold">Ulaanbaatar, Mongolia</p>
+</div>
+<p class="text-xs text-gray-400">Remote Compatible</p>
+</div>
+</div>
+<!-- 3. Timer / Clock (Small) -->
+<div class="bento-card col-span-1 row-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col items-center justify-center gap-4">
+<div class="w-full flex justify-between items-center pb-4 border-b border-[#283928]">
+<span class="text-gray-400 text-sm font-medium">Local Time</span>
+<span class="material-symbols-outlined text-primary animate-spin" style="animation-duration: 4s;">schedule</span>
+</div>
+<div class="flex gap-2 items-end">
+<div class="flex flex-col items-center gap-1">
+<div class="bg-[#1e331e] rounded-lg p-3 min-w-[50px] flex items-center justify-center border border-[#283928]">
+<span class="text-2xl font-bold text-white font-mono" id="hours">--</span>
+</div>
+<span class="text-[10px] text-gray-500 uppercase tracking-wider">Hrs</span>
+</div>
+<span class="text-2xl font-bold text-gray-600 mb-6">:</span>
+<div class="flex flex-col items-center gap-1">
+<div class="bg-[#1e331e] rounded-lg p-3 min-w-[50px] flex items-center justify-center border border-[#283928]">
+<span class="text-2xl font-bold text-white font-mono" id="minutes">--</span>
+</div>
+<span class="text-[10px] text-gray-500 uppercase tracking-wider">Min</span>
+</div>
+<span class="text-2xl font-bold text-gray-600 mb-6">:</span>
+<div class="flex flex-col items-center gap-1">
+<div class="bg-[#1e331e] rounded-lg p-3 min-w-[50px] flex items-center justify-center border border-[#283928]">
+<span class="text-2xl font-bold text-primary font-mono" id="seconds">--</span>
+</div>
+<span class="text-[10px] text-gray-500 uppercase tracking-wider">Sec</span>
+</div>
+</div>
+</div>
+<!-- 4. Tech Stack (Wide Strip) -->
+<div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col justify-center">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-gray-200 font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">layers</span>
+                        Tech Stack
+                    </h3>
+</div>
+<!-- Scrolling container simulation -->
+<div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 mask-linear-gradient">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">code</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">ReactJS</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">data_object</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">TypeScript</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">wind_power</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Tailwind</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">deployed_code</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Next.js 14</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">view_in_ar</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Three.js</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">animation</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Framer Motion</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">storage</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Node.js</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">database</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">MongoDB</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">cloud</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">AWS</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">terminal</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Docker</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">git</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Git</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">api</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">REST API</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">python</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Python</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">database</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">PostgreSQL</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">cloud</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Azure</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">code</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Express.js</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">analytics</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">GraphQL</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
+<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">speed</span>
+<p class="text-white group-hover/chip:text-black text-sm font-medium">Redis</p>
+</div>
+</div>
+</div>
+<!-- 5. CTA "Get In Touch" (Large Visual) -->
+<div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 rounded-3xl relative overflow-hidden group">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Abstract neon green geometric shapes in dark space" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpXuVptCX2m90fEpXi6el7Hf2s-ya4YLqcJyGXDFynDufPWYY8WqCzCvDkTCeFyKbkzAyj9Z5XRdaP3FmVhi7U-uwqzNqHr1TFmWy2QbOiye6kinlypIDxEm0unWEXzzPCSffzQzQ0gmLGsfsUz-A82q4SuWJnKIfQDrWJkhqgUx1yT5g5bogLf64pA9KsV9__yWa4HC0gH1_xoZ7FYO6nTAKMzCBccHp8g7Bf4sCXYoDnR0CSbOabN8gUgM2JEqwWfzHYZlPYZy4");'>
+</div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent"></div>
+<div class="relative h-full flex flex-col justify-end p-8 items-start">
+<div class="mb-auto w-full flex justify-end">
+<div class="size-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-symbols-outlined text-white group-hover:text-black">mail</span>
+</div>
+</div>
+<h2 class="text-3xl font-bold text-white mb-2 max-w-xs">Let's Build Something Amazing</h2>
+<p class="text-[#9cba9c] mb-6 max-w-sm">Have an idea? I can help you translate your vision into a high-end digital product.</p>
+<button class="flex items-center justify-center gap-2 rounded-full h-12 px-8 bg-primary text-background-dark text-sm font-bold hover:bg-white transition-all w-full md:w-auto">
+<span>Get in Touch</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+<!-- 6. Social Links (Small) -->
+<div class="bento-card col-span-1 row-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col justify-center gap-4">
+<div class="flex items-center justify-between">
+<span class="text-gray-400 font-medium">Connect</span>
+<span class="material-symbols-outlined text-primary">hub</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<a class="flex items-center justify-center h-12 rounded-xl bg-[#1e331e] border border-[#283928] hover:bg-primary hover:text-black transition-colors group/social" href="https://github.com/DarkMooN-SYS">
+<span class="text-sm font-bold">GH</span>
+</a>
+<a class="flex items-center justify-center h-12 rounded-xl bg-[#1e331e] border border-[#283928] hover:bg-primary hover:text-black transition-colors group/social" href="https://www.instagram.com/darkmoon_dev">
+<span class="text-sm font-bold">IG</span>
+</a>
+<a class="flex items-center justify-center h-12 rounded-xl bg-[#1e331e] border border-[#283928] hover:bg-primary hover:text-black transition-colors group/social" href="#">
+<span class="text-sm font-bold">Coming Soon</span>
+</a>
+<a class="flex items-center justify-center h-12 rounded-xl bg-[#1e331e] border border-[#283928] hover:bg-primary hover:text-black transition-colors group/social" href="">
+<span class="text-sm font-bold">Coming Soon</span>
+</a>
+</div>
+</div>
+<!-- 7. Services / Mini List (Tall) -->
+<div class="bento-card col-span-1 md:col-span-1 row-span-1 md:row-span-2 rounded-3xl bg-surface-dark border border-[#283928] p-6">
+<h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">design_services</span>
+                    Services
+                </h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3 group/item">
+<div class="mt-1 size-2 rounded-full bg-gray-600 group-hover/item:bg-primary transition-colors"></div>
+<div>
+<h4 class="text-white font-medium text-sm">Web Development</h4>
+<p class="text-gray-500 text-xs mt-1">React, Next.js, Node</p>
+</div>
+</li>
+<li class="flex items-start gap-3 group/item">
+<div class="mt-1 size-2 rounded-full bg-gray-600 group-hover/item:bg-primary transition-colors"></div>
+<div>
+<h4 class="text-white font-medium text-sm">UI/UX Engineering</h4>
+<p class="text-gray-500 text-xs mt-1">Design Systems, Animations</p>
+</div>
+</li>
+<li class="flex items-start gap-3 group/item">
+<div class="mt-1 size-2 rounded-full bg-gray-600 group-hover/item:bg-primary transition-colors"></div>
+<div>
+<h4 class="text-white font-medium text-sm">3D Experiences</h4>
+<p class="text-gray-500 text-xs mt-1">Three.js, WebGL</p>
+</div>
+</li>
+<li class="flex items-start gap-3 group/item">
+<div class="mt-1 size-2 rounded-full bg-gray-600 group-hover/item:bg-primary transition-colors"></div>
+<div>
+<h4 class="text-white font-medium text-sm">Technical Writing</h4>
+<p class="text-gray-500 text-xs mt-1">Docs, Blog Posts</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</main>
+<script>
+    function updateMongolianTime() {
+        const now = new Date();
+        // Mongolia is UTC+8
+        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+        const mongoliaTime = new Date(utc + (8 * 3600000));
+        
+        const hours = String(mongoliaTime.getHours()).padStart(2, '0');
+        const minutes = String(mongoliaTime.getMinutes()).padStart(2, '0');
+        const seconds = String(mongoliaTime.getSeconds()).padStart(2, '0');
+        
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+    }
+    
+    // Update time immediately and then every second
+    updateMongolianTime();
+    setInterval(updateMongolianTime, 1000);
+    
+    // Mobile menu toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            // Change icon when menu is open
+            const icon = mobileMenuButton.querySelector('.material-symbols-outlined');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.textContent = 'menu';
+            } else {
+                icon.textContent = 'close';
+            }
+        });
+        
+        // Close menu when clicking outside or on a link
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuButton.querySelector('.material-symbols-outlined');
+                icon.textContent = 'menu';
+            }
+        });
+    });
+</script>
+</body></html>

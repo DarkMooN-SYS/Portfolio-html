@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About - DevFolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#102210",
+                        "surface-dark": "#162616",
+                        "surface-light": "#1e331e",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>.custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(40, 57, 40, 0.3);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #283928;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #0df20d;
+        }
+        .bento-card {
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 50px -10px rgba(13, 242, 13, 0.1);
+            border-color: rgba(13, 242, 13, 0.4);
+        }
+        .glow-portrait {
+            box-shadow: 0 0 80px -20px rgba(13, 242, 13, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 w-full backdrop-blur-md border-b border-[#283928] bg-background-dark/80">
+<div class="px-4 md:px-10 py-4 flex items-center justify-between max-w-7xl mx-auto">
+<div class="flex items-center gap-3 text-white">
+<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-background-dark">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<a class="text-white text-xl font-bold tracking-tight" href="/index.html">DevFolio</a>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/work.html">Work</a>
+<a class="text-primary transition-colors text-sm font-medium" href="/about.html">About</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/services.html">Services</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/note.html">Notes</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center justify-center gap-2 rounded-full h-10 px-5 bg-surface-light border border-[#283928] text-white text-sm font-bold hover:bg-[#283928] transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Resume</span>
+</button>
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-button" class="md:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-[#1e331e] border border-[#283928] text-white hover:bg-primary hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Navigation Menu -->
+<nav id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-background-dark/95 backdrop-blur-md border-b border-[#283928] md:hidden z-50">
+<div class="px-4 py-4 flex flex-col gap-4 max-w-7xl mx-auto">
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/work.html">Work</a>
+<a class="text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/about.html">About</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/services.html">Services</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/note.html">Notes</a>
+<button class="flex items-center justify-center gap-2 rounded-full h-10 px-5 bg-surface-light border border-[#283928] text-white text-sm font-bold hover:bg-[#283928] transition-colors w-full mt-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Resume</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="flex-grow w-full px-4 py-8 md:p-10 flex justify-center items-start">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full max-w-7xl">
+<div class="lg:col-span-1 flex flex-col h-full">
+<div class="bento-card relative h-full min-h-[500px] lg:min-h-0 rounded-3xl bg-surface-dark border border-[#283928] overflow-hidden group glow-portrait">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4iOc6YDbSAESiK5Id1U-DPHxzzPDtdXP0DYrjFyR8s1Fmj9_Y0VBbgtfRqM51LfZdJs2AkPUXn6qI5OgYpOfMDyI06yADhYIwqSBU1bMyVp2qLqbMKBpqMZ0uMKpskiRxbrovygJbB0jByfsuiK0DLanlF93Z06mkTKUiiMXW7UyzkMwK17HwChq7ENc-oU86XkhY1IAbGTktsuYB3MkhJrDzOQMwq_4jLzK4nPcHS7JUSti43g1xXlfigx2yuVm_t3GCfRNMLLU');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-xs font-bold mb-4">
+<span class="material-symbols-outlined text-[14px]">badge</span>
+                            Full Stack Developer
+                        </div>
+<h1 class="text-4xl font-bold text-white mb-2 tracking-tight">DarkMooN</h1>
+<p class="text-gray-300 text-sm leading-relaxed max-w-xs">
+                            Based in Mongolia. Passionate about full stack development and creating impactful digital solutions.
+                        </p>
+<div class="flex gap-3 mt-6">
+<a class="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">alternate_email</span>
+</a>
+<a class="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-colors" href="https://github.com/DarkMooN-SYS">
+<span class="text-xs font-bold" >GH</span>
+</a>
+<a class="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-colors" href="#">
+<span class="text-xs font-bold">LI</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1 flex flex-col gap-6">
+<div class="bento-card rounded-3xl bg-surface-dark border border-[#283928] p-8 flex flex-col flex-grow relative overflow-hidden">
+<div class="absolute top-0 right-0 p-6 opacity-10">
+<span class="material-symbols-outlined text-[100px] text-white">format_quote</span>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">person</span>
+<h3 class="text-lg font-bold text-white">Biography</h3>
+</div>
+<div class="space-y-4 font-body text-gray-400 text-sm leading-7">
+<p>
+                            I started my journey in development, tinkering with code and exploring the endless possibilities of technology. What began as curiosity quickly turned into a career-defining passion for building digital products that solve real-world problems.
+                        </p>
+<p>
+                            Over the years, I've had the privilege of working on diverse projects, from web applications to complex backend systems, always focusing on creating efficient and user-friendly solutions.
+                        </p>
+<p>
+                            My main focus these days is building accessible, inclusive products and digital experiences that make a difference for users around the world.
+                        </p>
+</div>
+<div class="mt-8 pt-6 border-t border-[#283928]">
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-md bg-[#1e331e] border border-[#283928] text-xs text-gray-300">Full Stack</span>
+<span class="px-3 py-1 rounded-md bg-[#1e331e] border border-[#283928] text-xs text-gray-300">Backend</span>
+<span class="px-3 py-1 rounded-md bg-[#1e331e] border border-[#283928] text-xs text-gray-300">Frontend</span>
+</div>
+</div>
+</div>
+<div class="bento-card rounded-3xl bg-surface-dark border border-[#283928] p-6">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">school</span>
+<h3 class="text-lg font-bold text-white">Education</h3>
+</div>
+<div class="mb-6">
+<h4 class="text-white font-semibold">Computer Science & Technology</h4>
+<p class="text-gray-500 text-xs mt-1">Mongolian University of Science and Technology</p>
+<p class="text-gray-600 text-xs mt-1">2018 - 2022</p>
+</div>
+<div class="p-4 rounded-xl bg-[#1e331e] border border-[#283928]">
+<p class="text-primary text-sm font-medium italic">"Code is poetry written in logic."</p>
+<p class="text-gray-500 text-[10px] mt-2 text-right uppercase tracking-wider">— My Philosophy</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1 flex flex-col gap-6">
+<div class="bento-card rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col h-[400px] lg:h-auto lg:flex-grow">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-[#283928]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+<h3 class="text-lg font-bold text-white">Experience</h3>
+</div>
+<span class="text-xs text-gray-500 bg-[#1e331e] px-2 py-1 rounded">Scrollable</span>
+</div>
+<div class="overflow-y-auto custom-scrollbar pr-2 flex-grow space-y-6">
+<div class="relative pl-6 border-l border-[#283928] group">
+<span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-gray-600 group-hover:bg-primary transition-colors ring-4 ring-surface-dark"></span>
+<span class="text-xs font-mono text-primary mb-1 block">2025 — Present</span>
+<h4 class="text-white font-bold text-sm">Full Stack Developer</h4>
+<p class="text-gray-400 text-xs mt-0.5">Tech Solutions LLC</p>
+<p class="text-gray-500 text-xs mt-2 leading-relaxed">Leading full stack development projects, implementing modern technologies and best practices.</p>
+</div>
+<div class="relative pl-6 border-l border-[#283928] group">
+<span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-gray-600 group-hover:bg-primary transition-colors ring-4 ring-surface-dark"></span>
+<span class="text-xs font-mono text-gray-500 mb-1 block">2024 — 2025</span>
+<h4 class="text-white font-bold text-sm">Backend Developer</h4>
+<p class="text-gray-400 text-xs mt-0.5">Digital Innovation Agency</p>
+<p class="text-gray-500 text-xs mt-2 leading-relaxed">Specialized in API development and database optimization for enterprise applications.</p>
+</div>
+<div class="relative pl-6 border-l border-[#283928] group">
+<span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-gray-600 group-hover:bg-primary transition-colors ring-4 ring-surface-dark"></span>
+<span class="text-xs font-mono text-gray-500 mb-1 block">2023 — 2024</span>
+<h4 class="text-white font-bold text-sm">Junior Developer</h4>
+<p class="text-gray-400 text-xs mt-0.5">Startup Mongolia</p>
+<p class="text-gray-500 text-xs mt-2 leading-relaxed">Contributed to web application development and learned modern development practices.</p>
+</div>
+<div class="relative pl-6 border-l border-[#283928] group">
+<span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-gray-600 group-hover:bg-primary transition-colors ring-4 ring-surface-dark"></span>
+<span class="text-xs font-mono text-gray-500 mb-1 block">2023 — 2024</span>
+<h4 class="text-white font-bold text-sm">Intern Developer</h4>
+<p class="text-gray-400 text-xs mt-0.5">Local Tech Company</p>
+</div>
+</div>
+</div>
+<div class="bento-card rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col justify-center">
+<div class="flex items-center gap-4">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</div>
+<div>
+<h4 class="text-gray-400 text-xs uppercase tracking-widest font-semibold">Current Status</h4>
+<p class="text-white font-bold mt-1">Building Innovative Solutions</p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-xs text-gray-500">Always Learning & Growing</span>
+<span class="material-symbols-outlined text-gray-600 text-[20px]">rocket_launch</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<script>
+    // Mobile menu toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            // Change icon when menu is open
+            const icon = mobileMenuButton.querySelector('.material-symbols-outlined');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.textContent = 'menu';
+            } else {
+                icon.textContent = 'close';
+            }
+        });
+        
+        // Close menu when clicking outside or on a link
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuButton.querySelector('.material-symbols-outlined');
+                icon.textContent = 'menu';
+            }
+        });
+    });
+</script>
+
+</body></html>
