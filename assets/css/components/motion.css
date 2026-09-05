@@ -1,0 +1,130 @@
+@keyframes rise-in {
+  from {
+    opacity: 0.35;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0.35; }
+  to { opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(13, 242, 13, 0.35); }
+  50% { box-shadow: 0 0 22px rgba(13, 242, 13, 0.55); }
+}
+
+#main {
+  animation: fade-in 0.28s ease-out;
+}
+
+.reveal {
+  animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.reveal-d1 { animation-delay: 0.05s; }
+.reveal-d2 { animation-delay: 0.1s; }
+.reveal-d3 { animation-delay: 0.15s; }
+.reveal-d4 { animation-delay: 0.2s; }
+.reveal-d5 { animation-delay: 0.25s; }
+
+.reveal:has(iframe) {
+  animation-name: fade-in;
+  transform: none;
+}
+
+.site-logo__mark {
+  animation: glow-pulse 3.2s ease-in-out infinite;
+}
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.btn-resume {
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-resume:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -10px rgba(13, 242, 13, 0.4);
+}
+
+#main a.rounded-full {
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+#main a.rounded-full:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -12px rgba(13, 242, 13, 0.5);
+}
+
+.filter-btn {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.filter-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+::view-transition-old(root) {
+  animation: 0.22s ease-out both vt-out;
+}
+::view-transition-new(root) {
+  animation: 0.28s ease-out both vt-in;
+}
+
+@keyframes vt-out {
+  to { opacity: 0; }
+}
+@keyframes vt-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bento-card:not(:has(iframe)):hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main,
+  .reveal,
+  .reveal-d1,
+  .reveal-d2,
+  .reveal-d3,
+  .reveal-d4,
+  .reveal-d5,
+  .site-logo__mark,
+  .marquee-track {
+    animation: none !important;
+  }
+  .bento-card:hover,
+  .btn-resume:hover,
+  #main a.rounded-full:hover,
+  .filter-btn:hover {
+    transform: none !important;
+  }
+  .nav-link::after { display: none; }
+  @view-transition { navigation: none; }
+}

@@ -1,383 +1,197 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Portfolio - DarkMooN</title>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<!-- Theme Configuration -->
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0df20d",
-                        "background-light": "#f5f8f5",
-                        "background-dark": "#102210",
-                        "surface-dark": "#162616",
-                        "surface-light": "#1e331e",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "body": ["Noto Sans", "sans-serif"],
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-<style>
-        /* Custom scrollbar for chips */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .bento-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .bento-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px -10px rgba(13, 242, 13, 0.15);
-            border-color: rgba(13, 242, 13, 0.3);
-        }
-    </style>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DarkMooN — Full Stack Developer</title>
+  <meta name="description" content="DarkMooN is a full stack developer in Ulaanbaatar building web apps, product dashboards, and mobile experiences."/>
+  <meta property="og:title" content="DarkMooN — Full Stack Developer"/>
+  <meta property="og:description" content="Selected work and contact from Ulaanbaatar, Mongolia."/>
+  <meta property="og:type" content="website"/>
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/main.css"/>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden min-h-screen flex flex-col">
-<!-- Navigation -->
-<header class="sticky top-0 z-50 w-full backdrop-blur-md border-b border-[#283928] bg-background-dark/80">
-<div class="px-4 md:px-10 py-4 flex items-center justify-between max-w-7xl mx-auto">
-<div class="flex items-center gap-3 text-white">
-<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-background-dark">
-<span class="material-symbols-outlined">terminal</span>
-</div>
-<a class="text-white text-xl font-bold tracking-tight" href="/index.html">DevFolio</a>
-</div>
-<!-- Desktop Navigation -->
-<nav class="hidden md:flex flex-1 justify-center gap-8">
-<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/work.html">Work</a>
-<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/about.html">About</a>
-<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/services.html">Services</a>
-<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="/note.html">Notes</a>
-</nav>
-<div class="flex items-center gap-4">
-<button class="hidden sm:flex items-center justify-center gap-2 rounded-full h-10 px-5 bg-surface-light border border-[#283928] text-white text-sm font-bold hover:bg-[#283928] transition-colors">
-<span class="material-symbols-outlined text-[18px]">download</span>
-<span>Resume</span>
-</button>
-<!-- Mobile Menu Button -->
-<button id="mobile-menu-button" class="md:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-[#1e331e] border border-[#283928] text-white hover:bg-primary hover:text-background-dark transition-colors">
-<span class="material-symbols-outlined text-[24px]">menu</span>
-</button>
-</div>
-</div>
-<!-- Mobile Navigation Menu -->
-<nav id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-background-dark/95 backdrop-blur-md border-b border-[#283928] md:hidden z-50">
-<div class="px-4 py-4 flex flex-col gap-4 max-w-7xl mx-auto">
-<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/work.html">Work</a>
-<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/about.html">About</a>
-<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/services.html">Services</a>
-<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium py-2 border-b border-[#283928] pb-3" href="/note.html">Notes</a>
-<button class="flex items-center justify-center gap-2 rounded-full h-10 px-5 bg-surface-light border border-[#283928] text-white text-sm font-bold hover:bg-[#283928] transition-colors w-full mt-2">
-<span class="material-symbols-outlined text-[18px]">download</span>
-<span>Resume</span>
-</button>
-</div>
-</nav>
-</header>
-<!-- Main Content: Bento Grid -->
-<main class="flex-grow w-full px-4 py-8 md:p-10 flex justify-center items-start">
-<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl">
-<!-- 1. Headline / Intro (Large) -->
-<div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative overflow-hidden rounded-3xl bg-surface-dark border border-[#283928] p-8 flex flex-col justify-between group">
-<div class="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
-<span class="material-symbols-outlined text-[120px] text-primary rotate-12">auto_awesome</span>
-</div>
-<div>
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-</span>
-                        Available for freelance
-                    </div>
-<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4 text-white">
-                        Hi, I'm DarkMooN. <br/>
-<span class="text-gray-400">I'm a full stack developer.</span>
-</h1>
-</div>
-<div class="flex gap-4 mt-8">
-<button class="flex items-center justify-center rounded-full h-12 px-6 bg-primary text-background-dark text-base font-bold hover:bg-white transition-colors">
-                        View Projects
-                    </button>
-<button class="flex items-center justify-center rounded-full h-12 w-12 border border-[#283928] text-white hover:bg-[#283928] transition-colors">
-<span class="material-symbols-outlined">arrow_outward</span>
-</button>
-</div>
-</div>
-<!-- 2. Location Map (Small) -->
-<div class="bento-card col-span-1 row-span-1 rounded-3xl bg-surface-dark border border-[#283928] relative overflow-hidden group min-h-[240px]">
-<div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-80 transition-opacity" data-alt="Abstract dark map of Ulaanbaatar with neon green streets" data-location="Ulaanbaatar">
-    <img src="./assets/image.png" alt="ERROR" loading="lazy" srcset="">
-</div>
-<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-6">
-<div class="flex items-center gap-2 mb-1">
-<span class="material-symbols-outlined text-primary">location_on</span>
-<p class="text-white font-bold">Ulaanbaatar, Mongolia</p>
-</div>
-<p class="text-xs text-gray-400">Remote Compatible</p>
-</div>
-</div>
-<!-- 3. Timer / Clock (Small) -->
-<div class="bento-card col-span-1 row-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col items-center justify-center gap-4">
-<div class="w-full flex justify-between items-center pb-4 border-b border-[#283928]">
-<span class="text-gray-400 text-sm font-medium">Local Time</span>
-<span class="material-symbols-outlined text-primary animate-spin" style="animation-duration: 4s;">schedule</span>
-</div>
-<div class="flex gap-2 items-end">
-<div class="flex flex-col items-center gap-1">
-<div class="bg-[#1e331e] rounded-lg p-3 min-w-[50px] flex items-center justify-center border border-[#283928]">
-<span class="text-2xl font-bold text-white font-mono" id="hours">--</span>
-</div>
-<span class="text-[10px] text-gray-500 uppercase tracking-wider">Hrs</span>
-</div>
-<span class="text-2xl font-bold text-gray-600 mb-6">:</span>
-<div class="flex flex-col items-center gap-1">
-<div class="bg-[#1e331e] rounded-lg p-3 min-w-[50px] flex items-center justify-center border border-[#283928]">
-<span class="text-2xl font-bold text-white font-mono" id="minutes">--</span>
-</div>
-<span class="text-[10px] text-gray-500 uppercase tracking-wider">Min</span>
-</div>
-<span class="text-2xl font-bold text-gray-600 mb-6">:</span>
-<div class="flex flex-col items-center gap-1">
-<div class="bg-[#1e331e] rounded-lg p-3 min-w-[50px] flex items-center justify-center border border-[#283928]">
-<span class="text-2xl font-bold text-primary font-mono" id="seconds">--</span>
-</div>
-<span class="text-[10px] text-gray-500 uppercase tracking-wider">Sec</span>
-</div>
-</div>
-</div>
-<!-- 4. Tech Stack (Wide Strip) -->
-<div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col justify-center">
-<div class="flex items-center justify-between mb-4">
-<h3 class="text-gray-200 font-bold flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">layers</span>
-                        Tech Stack
-                    </h3>
-</div>
-<!-- Scrolling container simulation -->
-<div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 mask-linear-gradient">
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">code</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">ReactJS</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">data_object</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">TypeScript</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">wind_power</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Tailwind</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">deployed_code</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Next.js 14</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">view_in_ar</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Three.js</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">animation</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Framer Motion</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">storage</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Node.js</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">database</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">MongoDB</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">cloud</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">AWS</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">terminal</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Docker</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">git</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Git</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">api</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">REST API</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">python</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Python</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">database</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">PostgreSQL</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">cloud</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Azure</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">code</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Express.js</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">analytics</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">GraphQL</p>
-</div>
-<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#1e331e] border border-[#283928] px-4 hover:bg-primary hover:text-black transition-colors cursor-default group/chip">
-<span class="material-symbols-outlined text-[18px] group-hover/chip:text-black">speed</span>
-<p class="text-white group-hover/chip:text-black text-sm font-medium">Redis</p>
-</div>
-</div>
-</div>
-<!-- 5. CTA "Get In Touch" (Large Visual) -->
-<div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 rounded-3xl relative overflow-hidden group">
-<!-- Background Image -->
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Abstract neon green geometric shapes in dark space" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpXuVptCX2m90fEpXi6el7Hf2s-ya4YLqcJyGXDFynDufPWYY8WqCzCvDkTCeFyKbkzAyj9Z5XRdaP3FmVhi7U-uwqzNqHr1TFmWy2QbOiye6kinlypIDxEm0unWEXzzPCSffzQzQ0gmLGsfsUz-A82q4SuWJnKIfQDrWJkhqgUx1yT5g5bogLf64pA9KsV9__yWa4HC0gH1_xoZ7FYO6nTAKMzCBccHp8g7Bf4sCXYoDnR0CSbOabN8gUgM2JEqwWfzHYZlPYZy4");'>
-</div>
-<!-- Gradient Overlay -->
-<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent"></div>
-<div class="relative h-full flex flex-col justify-end p-8 items-start">
-<div class="mb-auto w-full flex justify-end">
-<div class="size-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:bg-primary group-hover:text-black transition-colors">
-<span class="material-symbols-outlined text-white group-hover:text-black">mail</span>
-</div>
-</div>
-<h2 class="text-3xl font-bold text-white mb-2 max-w-xs">Let's Build Something Amazing</h2>
-<p class="text-[#9cba9c] mb-6 max-w-sm">Have an idea? I can help you translate your vision into a high-end digital product.</p>
-<button class="flex items-center justify-center gap-2 rounded-full h-12 px-8 bg-primary text-background-dark text-sm font-bold hover:bg-white transition-all w-full md:w-auto">
-<span>Get in Touch</span>
-<span class="material-symbols-outlined text-[18px]">send</span>
-</button>
-</div>
-</div>
-<!-- 6. Social Links (Small) -->
-<div class="bento-card col-span-1 row-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col justify-center gap-4">
-<div class="flex items-center justify-between">
-<span class="text-gray-400 font-medium">Connect</span>
-<span class="material-symbols-outlined text-primary">hub</span>
-</div>
-<div class="grid grid-cols-2 gap-3">
-<a class="flex items-center justify-center h-12 rounded-xl bg-[#1e331e] border border-[#283928] hover:bg-primary hover:text-black transition-colors group/social" href="https://github.com/DarkMooN-SYS">
-<span class="text-sm font-bold">GH</span>
-</a>
-<a class="flex items-center justify-center h-12 rounded-xl bg-[#1e331e] border border-[#283928] hover:bg-primary hover:text-black transition-colors group/social" href="https://www.instagram.com/darkmoon_dev">
-<span class="text-sm font-bold">IG</span>
-</a>
-<a class="flex items-center justify-center h-12 rounded-xl bg-[#1e331e] border border-[#283928] hover:bg-primary hover:text-black transition-colors group/social" href="#">
-<span class="text-sm font-bold">Coming Soon</span>
-</a>
-<a class="flex items-center justify-center h-12 rounded-xl bg-[#1e331e] border border-[#283928] hover:bg-primary hover:text-black transition-colors group/social" href="">
-<span class="text-sm font-bold">Coming Soon</span>
-</a>
-</div>
-</div>
-<!-- 7. Services / Mini List (Tall) -->
-<div class="bento-card col-span-1 md:col-span-1 row-span-1 md:row-span-2 rounded-3xl bg-surface-dark border border-[#283928] p-6">
-<h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">design_services</span>
-                    Services
-                </h3>
-<ul class="space-y-4">
-<li class="flex items-start gap-3 group/item">
-<div class="mt-1 size-2 rounded-full bg-gray-600 group-hover/item:bg-primary transition-colors"></div>
-<div>
-<h4 class="text-white font-medium text-sm">Web Development</h4>
-<p class="text-gray-500 text-xs mt-1">React, Next.js, Node</p>
-</div>
-</li>
-<li class="flex items-start gap-3 group/item">
-<div class="mt-1 size-2 rounded-full bg-gray-600 group-hover/item:bg-primary transition-colors"></div>
-<div>
-<h4 class="text-white font-medium text-sm">UI/UX Engineering</h4>
-<p class="text-gray-500 text-xs mt-1">Design Systems, Animations</p>
-</div>
-</li>
-<li class="flex items-start gap-3 group/item">
-<div class="mt-1 size-2 rounded-full bg-gray-600 group-hover/item:bg-primary transition-colors"></div>
-<div>
-<h4 class="text-white font-medium text-sm">3D Experiences</h4>
-<p class="text-gray-500 text-xs mt-1">Three.js, WebGL</p>
-</div>
-</li>
-<li class="flex items-start gap-3 group/item">
-<div class="mt-1 size-2 rounded-full bg-gray-600 group-hover/item:bg-primary transition-colors"></div>
-<div>
-<h4 class="text-white font-medium text-sm">Technical Writing</h4>
-<p class="text-gray-500 text-xs mt-1">Docs, Blog Posts</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</main>
-<script>
-    function updateMongolianTime() {
-        const now = new Date();
-        // Mongolia is UTC+8
-        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-        const mongoliaTime = new Date(utc + (8 * 3600000));
-        
-        const hours = String(mongoliaTime.getHours()).padStart(2, '0');
-        const minutes = String(mongoliaTime.getMinutes()).padStart(2, '0');
-        const seconds = String(mongoliaTime.getSeconds()).padStart(2, '0');
-        
-        document.getElementById('hours').textContent = hours;
-        document.getElementById('minutes').textContent = minutes;
-        document.getElementById('seconds').textContent = seconds;
-    }
-    
-    // Update time immediately and then every second
-    updateMongolianTime();
-    setInterval(updateMongolianTime, 1000);
-    
-    // Mobile menu toggle functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            // Change icon when menu is open
-            const icon = mobileMenuButton.querySelector('.material-symbols-outlined');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.textContent = 'menu';
-            } else {
-                icon.textContent = 'close';
-            }
-        });
-        
-        // Close menu when clicking outside or on a link
-        document.addEventListener('click', function(e) {
-            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                const icon = mobileMenuButton.querySelector('.material-symbols-outlined');
-                icon.textContent = 'menu';
-            }
-        });
-    });
-</script>
-</body></html>
+<body class="noise bg-background-dark font-display text-white antialiased overflow-x-hidden min-h-screen flex flex-col" data-page="home" data-root="./">
+  <script src="assets/js/layout.js"></script>
+
+  <main id="main" class="flex-grow w-full px-4 py-8 md:p-10 flex justify-center items-start">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl">
+      <section class="bento-card reveal col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative overflow-hidden rounded-3xl bg-surface-dark border border-[#283928] p-8 flex flex-col justify-between">
+        <div class="absolute top-0 right-0 p-8 opacity-15 pointer-events-none">
+          <span class="material-symbols-outlined text-[120px] text-primary rotate-12">auto_awesome</span>
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            Open to freelance
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-[3.4rem] font-bold leading-[1.08] tracking-tight mb-4">
+            Hi, I’m DarkMooN.<br/>
+            <span class="text-gray-400">I ship full-stack products that feel finished.</span>
+          </h1>
+          <p class="text-sm text-[#9cba9c] max-w-md font-body leading-relaxed">Web apps, dashboards, and mobile builds from Ulaanbaatar — designed for clarity, speed, and real users.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a class="inline-flex items-center justify-center rounded-full h-12 px-6 bg-primary text-background-dark text-base font-bold hover:bg-white transition-colors" href="pages/work.html">View work</a>
+          <a class="inline-flex items-center justify-center rounded-full h-12 px-6 border border-[#283928] text-white hover:border-primary hover:text-primary transition-colors" href="pages/contact.html">Get in touch</a>
+        </div>
+      </section>
+
+      <section class="bento-card reveal reveal-d1 col-span-1 rounded-3xl border border-[#283928] relative overflow-hidden min-h-[240px]">
+        <iframe class="absolute inset-0 w-full h-full border-0 grayscale contrast-125 brightness-90" title="Ulaanbaatar on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Ulaanbaatar,Mongolia&hl=en&z=11&output=embed"></iframe>
+        <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 p-6 pointer-events-none">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="material-symbols-outlined text-primary">location_on</span>
+            <p class="font-bold">Ulaanbaatar, Mongolia</p>
+          </div>
+          <p class="text-xs text-gray-400">Remote-friendly · UTC+8</p>
+        </div>
+      </section>
+
+      <section class="bento-card reveal reveal-d2 col-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col items-center justify-center gap-4" aria-label="Local time in Ulaanbaatar">
+        <div class="w-full flex justify-between items-center pb-4 border-b border-[#283928]">
+          <span class="text-gray-400 text-sm font-medium">Local time</span>
+          <span class="material-symbols-outlined text-primary">schedule</span>
+        </div>
+        <div class="flex gap-2 items-end">
+          <div class="flex flex-col items-center gap-1">
+            <div class="bg-[#1e331e] rounded-lg p-3 min-w-[50px] flex items-center justify-center border border-[#283928]">
+              <span class="text-2xl font-bold font-mono" id="hours">--</span>
+            </div>
+            <span class="text-[10px] text-gray-500 uppercase tracking-wider">Hrs</span>
+          </div>
+          <span class="text-2xl font-bold text-gray-600 mb-6">:</span>
+          <div class="flex flex-col items-center gap-1">
+            <div class="bg-[#1e331e] rounded-lg p-3 min-w-[50px] flex items-center justify-center border border-[#283928]">
+              <span class="text-2xl font-bold font-mono" id="minutes">--</span>
+            </div>
+            <span class="text-[10px] text-gray-500 uppercase tracking-wider">Min</span>
+          </div>
+          <span class="text-2xl font-bold text-gray-600 mb-6">:</span>
+          <div class="flex flex-col items-center gap-1">
+            <div class="bg-[#1e331e] rounded-lg p-3 min-w-[50px] flex items-center justify-center border border-[#283928]">
+              <span class="text-2xl font-bold text-primary font-mono" id="seconds">--</span>
+            </div>
+            <span class="text-[10px] text-gray-500 uppercase tracking-wider">Sec</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="bento-card reveal reveal-d3 col-span-1 md:col-span-2 lg:col-span-2 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col justify-center">
+        <h2 class="text-gray-200 font-bold flex items-center gap-2 mb-4">
+          <span class="material-symbols-outlined text-primary">layers</span>
+          Tech stack
+        </h2>
+        <div class="marquee">
+          <div class="marquee-track">
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">React</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">TypeScript</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Next.js</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Tailwind</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Node.js</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Express</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Flutter</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">MongoDB</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">PostgreSQL</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Docker</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Git</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">REST APIs</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">React</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">TypeScript</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Next.js</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Tailwind</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Node.js</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Express</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Flutter</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">MongoDB</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">PostgreSQL</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Docker</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">Git</span>
+            <span class="flex h-10 shrink-0 items-center rounded-lg bg-[#1e331e] border border-[#283928] px-4 text-sm">REST APIs</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="bento-card reveal reveal-d2 col-span-1 md:col-span-2 lg:col-span-2 row-span-2 rounded-3xl relative overflow-hidden min-h-[320px] group">
+        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80" alt="Abstract circuit board lighting"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent"></div>
+        <div class="relative h-full flex flex-col justify-end p-8">
+          <p class="text-xs uppercase tracking-[0.2em] text-primary font-bold mb-3">Featured</p>
+          <h2 class="text-3xl font-bold mb-2 max-w-xs">Let’s build something that lasts</h2>
+          <p class="text-[#9cba9c] mb-6 max-w-sm font-body text-sm leading-relaxed">Have a product in mind? I’ll help you go from idea to a polished, shippable build.</p>
+          <a class="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 bg-primary text-background-dark text-sm font-bold hover:bg-white transition-all w-full md:w-auto" href="pages/contact.html">
+            Start a project
+            <span class="material-symbols-outlined text-[18px]">send</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="bento-card reveal reveal-d3 col-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col justify-center gap-4">
+        <div class="flex items-center justify-between">
+          <span class="text-gray-200 font-bold">Connect</span>
+          <span class="material-symbols-outlined text-primary">hub</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2.5">
+          <a class="social-tile" href="https://github.com/DarkMooN-SYS" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span class="social-name">GitHub</span>
+            <span class="social-handle">@DarkMooN-SYS</span>
+          </a>
+          <a class="social-tile" href="https://www.instagram.com/darkmoon_dev" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zM17.5 6a1 1 0 110 2 1 1 0 010-2z"/></svg>
+            <span class="social-name">Instagram</span>
+            <span class="social-handle">@darkmoon_dev</span>
+          </a>
+          <a class="social-tile" href="mailto:Darknose555@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6.75A1.75 1.75 0 015.75 5h12.5A1.75 1.75 0 0120 6.75v10.5A1.75 1.75 0 0118.25 19H5.75A1.75 1.75 0 014 17.25V6.75z"/><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 7l7.5 6 7.5-6"/></svg>
+            <span class="social-name">Email</span>
+            <span class="social-handle">Write me</span>
+          </a>
+          <a class="social-tile" href="tel:+97695279853">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 4.5h2.2l1.1 3.2-1.6 1.1a12.5 12.5 0 006 6l1.1-1.6 3.2 1.1v2.2A1.5 1.5 0 0118 18.5 14 14 0 015.5 6a1.5 1.5 0 012-1.5z"/></svg>
+            <span class="social-name">Call</span>
+            <span class="social-handle">+976</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="bento-card reveal reveal-d4 col-span-1 md:row-span-2 rounded-3xl bg-surface-dark border border-[#283928] p-6">
+        <h2 class="font-bold text-lg mb-6 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">design_services</span>
+          What I do
+        </h2>
+        <ul class="space-y-5">
+          <li>
+            <h3 class="font-medium text-sm">Web development</h3>
+            <p class="text-gray-500 text-xs mt-1">React, Next.js, Node</p>
+          </li>
+          <li>
+            <h3 class="font-medium text-sm">UI engineering</h3>
+            <p class="text-gray-500 text-xs mt-1">Design systems, motion</p>
+          </li>
+          <li>
+            <h3 class="font-medium text-sm">Mobile apps</h3>
+            <p class="text-gray-500 text-xs mt-1">Flutter, product UI</p>
+          </li>
+          <li>
+            <h3 class="font-medium text-sm">Product polish</h3>
+            <p class="text-gray-500 text-xs mt-1">Performance, accessibility</p>
+          </li>
+        </ul>
+        <a class="mt-6 inline-flex text-sm font-bold text-primary hover:underline" href="pages/contact.html">Start a project →</a>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

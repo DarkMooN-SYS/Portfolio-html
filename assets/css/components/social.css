@@ -1,0 +1,112 @@
+.social-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 4.75rem;
+  padding: 0.7rem 0.4rem;
+  border-radius: 0.9rem;
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  color: #fff;
+  text-align: center;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+.social-tile svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+.social-tile .social-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+.social-tile .social-handle {
+  font-size: 0.58rem;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.social-tile:hover {
+  transform: translateY(-3px);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--bg);
+  box-shadow: 0 10px 24px -12px rgba(13, 242, 13, 0.55);
+}
+.social-tile:hover .social-handle { color: #102210; }
+
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 1rem;
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  color: #fff;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+.social-row .social-icon {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  background: rgba(13, 242, 13, 0.1);
+  color: var(--primary);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.social-row .social-icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+.social-row .social-meta { min-width: 0; flex: 1; }
+.social-row .social-name { font-size: 0.875rem; font-weight: 700; }
+.social-row .social-handle {
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.social-row .social-arrow {
+  color: #6b856b;
+  font-size: 1.1rem;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.social-row:hover {
+  transform: translateY(-2px);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--bg);
+}
+.social-row:hover .social-icon {
+  background: var(--bg);
+  color: var(--primary);
+}
+.social-row:hover .social-handle,
+.social-row:hover .social-arrow { color: #102210; }
+.social-row:hover .social-arrow { transform: translate(2px, -2px); }
+
+.social-orb {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.social-orb svg { width: 1.05rem; height: 1.05rem; }
+.social-orb:hover {
+  background: var(--primary);
+  color: var(--bg);
+  transform: translateY(-2px);
+}

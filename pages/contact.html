@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — DarkMooN</title>
+  <meta name="description" content="Email DarkMooN at Darknose555@gmail.com or call +976 9527-9853. Ulaanbaatar, remote-friendly."/>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+<body class="noise bg-background-dark font-display text-white antialiased overflow-x-hidden min-h-screen flex flex-col" data-page="contact" data-root="../">
+  <script src="../assets/js/layout.js"></script>
+  <main id="main" class="flex-grow w-full px-4 py-8 md:p-10 flex justify-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl">
+      <section class="bento-card reveal col-span-1 md:col-span-2 lg:col-span-2 row-span-2 rounded-3xl bg-surface-dark border border-[#283928] p-8 flex flex-col">
+        <div class="mb-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-4">
+            <span class="material-symbols-outlined text-[16px]">mail</span> Get in touch
+          </div>
+          <h1 class="text-3xl md:text-4xl font-bold mb-2">Let’s work together</h1>
+          <p class="text-gray-400 font-body text-sm">Tell me about the project. This opens your email client with a ready message.</p>
+        </div>
+        <form id="contact-form" class="flex flex-col gap-4 flex-grow">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-gray-500 uppercase tracking-wider" for="name">Name</label>
+              <input id="name" name="name" required class="w-full bg-[#1e331e] border border-[#283928] rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-primary input-glow" placeholder="Your name" type="text" autocomplete="name"/>
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-gray-500 uppercase tracking-wider" for="email">Email</label>
+              <input id="email" name="email" required class="w-full bg-[#1e331e] border border-[#283928] rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-primary input-glow" placeholder="you@company.com" type="email" autocomplete="email"/>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-gray-500 uppercase tracking-wider" for="subject">Subject</label>
+            <input id="subject" name="subject" class="w-full bg-[#1e331e] border border-[#283928] rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-primary input-glow" placeholder="Project inquiry" type="text"/>
+          </div>
+          <div class="space-y-2 flex-grow flex flex-col">
+            <label class="text-xs font-bold text-gray-500 uppercase tracking-wider" for="message">Message</label>
+            <textarea id="message" name="message" required class="w-full h-full min-h-[120px] bg-[#1e331e] border border-[#283928] rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-primary input-glow resize-none" placeholder="Timeline, budget range, and what you need built…" rows="4"></textarea>
+          </div>
+          <button class="mt-2 w-full flex items-center justify-center gap-2 rounded-xl h-14 bg-primary text-background-dark text-base font-bold hover:bg-white transition-all group" type="submit">Send message <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span></button>
+        </form>
+      </section>
+      <section class="bento-card reveal reveal-d1 col-span-1 md:col-span-2 lg:col-span-2 rounded-3xl border border-[#283928] relative overflow-hidden min-h-[280px]">
+        <iframe class="absolute inset-0 w-full h-full border-0 grayscale contrast-125 brightness-90" title="Ulaanbaatar on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Ulaanbaatar,Mongolia&hl=en&z=12&output=embed"></iframe>
+        <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 p-8 w-full pointer-events-none">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-primary text-xs font-bold mb-3">
+            <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span>
+            Current location
+          </div>
+          <h2 class="text-2xl font-bold mb-1">Ulaanbaatar, Mongolia</h2>
+          <p class="text-gray-400 text-sm">Open to remote work worldwide</p>
+        </div>
+      </section>
+      <section class="bento-card reveal reveal-d2 col-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col justify-between">
+        <h2 class="font-bold flex items-center gap-2 mb-4"><span class="material-symbols-outlined text-primary">contact_phone</span> Direct</h2>
+        <div class="space-y-3">
+          <div>
+            <p class="text-xs text-gray-500 font-medium mb-1 ml-1">Email</p>
+            <div class="flex items-center gap-2 bg-[#1e331e] rounded-xl p-3 border border-[#283928]">
+              <a class="flex-1 min-w-0 text-sm font-mono truncate hover:text-primary" href="mailto:Darknose555@gmail.com">Darknose555@gmail.com</a>
+              <button class="text-gray-400 hover:text-primary" type="button" data-copy="Darknose555@gmail.com" title="Copy email" aria-label="Copy email"><span class="material-symbols-outlined text-[18px]">content_copy</span></button>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 font-medium mb-1 ml-1">Phone</p>
+            <div class="flex items-center gap-2 bg-[#1e331e] rounded-xl p-3 border border-[#283928]">
+              <a class="flex-1 min-w-0 text-sm font-mono truncate hover:text-primary" href="tel:+97695279853">+976 9527-9853</a>
+              <button class="text-gray-400 hover:text-primary" type="button" data-copy="+976 9527-9853" title="Copy phone" aria-label="Copy phone"><span class="material-symbols-outlined text-[18px]">content_copy</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bento-card reveal reveal-d3 col-span-1 rounded-3xl bg-surface-dark border border-[#283928] p-6 flex flex-col">
+        <h2 class="font-bold flex items-center gap-2 mb-5"><span class="material-symbols-outlined text-primary">share</span> Socials</h2>
+        <div class="flex flex-col gap-3 flex-grow justify-center">
+          <a class="social-row" href="https://github.com/DarkMooN-SYS" target="_blank" rel="noopener noreferrer">
+            <span class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
+            <span class="social-meta"><span class="social-name block">GitHub</span><span class="social-handle block">@DarkMooN-SYS</span></span>
+            <span class="social-arrow material-symbols-outlined">arrow_outward</span>
+          </a>
+          <a class="social-row" href="https://www.instagram.com/darkmoon_dev" target="_blank" rel="noopener noreferrer">
+            <span class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zM17.5 6a1 1 0 110 2 1 1 0 010-2z"/></svg></span>
+            <span class="social-meta"><span class="social-name block">Instagram</span><span class="social-handle block">@darkmoon_dev</span></span>
+            <span class="social-arrow material-symbols-outlined">arrow_outward</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

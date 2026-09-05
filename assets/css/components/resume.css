@@ -1,0 +1,22 @@
+@media print {
+  header,
+  .no-print,
+  .noise::before,
+  .site-header,
+  .site-footer,
+  .toast {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  main { padding: 0 !important; }
+  .print-sheet {
+    border: none !important;
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: none !important;
+  }
+  .print-muted { color: #444 !important; }
+}

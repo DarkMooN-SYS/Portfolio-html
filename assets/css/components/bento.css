@@ -1,0 +1,10 @@
+.bento-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.bento-card:hover {
+  box-shadow: 0 18px 50px -18px rgba(13, 242, 13, 0.22);
+  border-color: rgba(13, 242, 13, 0.45);
+}
+.bento-card:has(iframe):hover {
+  transform: none;
+}
