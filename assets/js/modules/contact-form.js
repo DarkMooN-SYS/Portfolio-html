@@ -3,7 +3,7 @@ export function setupContactForm(toast) {
   if (!form) return;
 
   const button = form.querySelector('button[type="submit"]');
-  const inbox = "Darknose555@gmail.com";
+  const inbox = "puntsagluvsan3@gmail.com";
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -46,7 +46,7 @@ export function setupContactForm(toast) {
       form.reset();
       toast("Sent. Check Gmail — confirm the first message once.");
     } catch {
-      toast("Could not send. Email me at Darknose555@gmail.com");
+      toast("Could not send. Email me at puntsagluvsan3@gmail.com");
     } finally {
       if (button) {
         button.disabled = false;
