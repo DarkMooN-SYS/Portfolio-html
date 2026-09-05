@@ -1,7 +1,11 @@
 export function setupContactForm(toast) {
   const form = document.getElementById("contact-form");
   if (!form) return;
-  form.addEventListener("submit", (e) => {
+
+  const button = form.querySelector('button[type="submit"]');
+  const inbox = "Darknose555@gmail.com";
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const name = form.name.value.trim();
     const email = form.email.value.trim();
@@ -11,8 +15,40 @@ export function setupContactForm(toast) {
       toast("Please fill in name, email, and message");
       return;
     }
-    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    window.location.href = `mailto:Darknose555@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    toast("Opening your email client");
+
+    if (button) {
+      button.disabled = true;
+      button.classList.add("opacity-70");
+    }
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${inbox}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          _subject: subject,
+          message,
+          _template: "table",
+        }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(data.message || "Send failed");
+      }
+      form.reset();
+      toast("Sent. Check Gmail — confirm the first message once.");
+    } catch {
+      toast("Could not send. Email me at Darknose555@gmail.com");
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.classList.remove("opacity-70");
+      }
+    }
   });
 }
