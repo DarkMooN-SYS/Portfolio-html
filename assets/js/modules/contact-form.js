@@ -22,19 +22,22 @@ export function setupContactForm(toast) {
     }
 
     try {
+      const body = new URLSearchParams({
+        name,
+        email,
+        subject,
+        message,
+        _replyto: email,
+        _subject: `Portfolio — ${subject}`,
+        _template: "table",
+      });
       const response = await fetch(`https://formsubmit.co/ajax/${inbox}`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          name,
-          email,
-          _subject: subject,
-          message,
-          _template: "table",
-        }),
+        body,
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) {
