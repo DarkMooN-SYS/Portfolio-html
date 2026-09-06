@@ -5,9 +5,11 @@ import { setupCopy } from "./modules/copy.js";
 import { setupContactForm } from "./modules/contact-form.js";
 import { setupFilters } from "./modules/filters.js";
 import { setupYear } from "./modules/year.js";
+import { setupBgScene } from "./modules/bg-scene.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const toast = createToast();
+  setupBgScene();
   setupMenu();
   setupClock();
   setupCopy(toast);

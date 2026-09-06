@@ -1,0 +1,26 @@
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+@media print {
+  .bg-scene {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-scene {
+    display: none;
+  }
+}

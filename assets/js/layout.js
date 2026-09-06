@@ -81,6 +81,16 @@
     }
   }
 
+  function injectBg() {
+    if (document.getElementById("bg-scene")) return;
+    const canvas = document.createElement("canvas");
+    canvas.id = "bg-scene";
+    canvas.className = "bg-scene";
+    canvas.setAttribute("aria-hidden", "true");
+    document.body.prepend(canvas);
+  }
+
+  injectBg();
   injectHeader();
 
   if (document.getElementById("main")) {
